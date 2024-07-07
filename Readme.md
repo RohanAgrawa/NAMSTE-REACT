@@ -152,3 +152,39 @@ it send to browser.
 To use Function component we use angular brackets
 
 <HeaderComponent /> OR <HeaderComponent><HeaderComponent />
+
+# --------------------------------------------------------------------------------------------------------------------------------------
+
+# Episode 4
+
+# Component Compisition :-
+
+Component Compisiton means we are using one component in another component.
+
+# Config Driven UI :-
+
+Config Driven UI means our UI is changing dynamically according to our backend data.
+For ex :- swiggy has different offer carousel for different city like Mumbai and Delhi could have different carousel offers and Indore don't have carousel offer.
+Basically we are building website once it changing or reacting according to the backend data for different conditions.
+
+# props :-
+
+Props is a property on a component, in simpler terms we can say a argument to a function at the end component is a javascript function.
+To change data dynamically to a component we use a conecpt of props in React.
+
+<RestaurantCardComponent
+            key={restaurant.data.id}
+            resData={restaurant}
+          />
+
+resData is prop we are passing to a component, resData is containing refrence to resturant object.
+
+# key :-
+
+key is a reserved keyword in react, which is used whenever we perform a loop operation on array, it is a good pratice to give a unique key to our dynamically rendered components.
+
+Key is powerfull concept, suppose new item is added to a list and if have not provide a key to our component then it basically re-render whole list because react not able to identify where to put the newly added component on a dom because all child of root node are at the same level. Basically Key is saving us for bad experince because if unique key is present than react automatically identify it's place put the newly added component.
+
+If unique is not coming from backend, then must add in api, if still backend does not have unique key than we can use array index as key. But it is a bad practice.
+https://legacy.reactjs.org/docs/lists-and-keys.html
+https://robinpokorny.com/blog/index-as-a-key-is-an-anti-pattern/
