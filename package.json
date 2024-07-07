@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "This is React Application",
   "scripts": {
+    "start": "npx parcel index.html",
     "test": "jest"
   },
   "repository": {
