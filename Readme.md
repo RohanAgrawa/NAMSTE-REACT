@@ -188,3 +188,92 @@ Key is powerfull concept, suppose new item is added to a list and if have not pr
 If unique is not coming from backend, then must add in api, if still backend does not have unique key than we can use array index as key. But it is a bad practice.
 https://legacy.reactjs.org/docs/lists-and-keys.html
 https://robinpokorny.com/blog/index-as-a-key-is-an-anti-pattern/
+
+# Food App
+
+/\*\*
+
+- Header
+- - Logo
+- - Nav Items
+- Body
+- - Search
+- - RestaurantContainer
+- - RestaurantCard
+-      - Img
+-      - Name of Res, Star Rating, cuisine, delery tie
+- Footer
+- - Copyright
+- - Links
+- - Address
+- - Contact
+    \*/
+
+# -------------------------------------------------------------------------------------------------------------------------------------
+
+# Episode 5
+
+# Export and Import
+
+Export & Import is very important concept in React, This concept comes in picture when we want to use a one component in another component or any constants or utilites we want to use in another file.
+
+If want to use component or utility in another file first we export than we import in another file to use an exported thing.
+
+Their is two type of exports.
+
+1.  Default export.
+2.  Named export.
+
+3.  Default export is a export we directly use with default keyword, means in the file only one thing need to export so we give it as same name weather it is component or constant.
+
+For eg :-
+
+export default Restaurant;
+
+If we are giving it as default than we don't need to includ in curly braces while importing in another file.
+
+import Restaurant from "./RestaurantCard";
+
+2. Named Export :-
+
+Named export is used when we want to export more than one thing from same file. we use export in front of declaration of function or constant so that while importing with name conflict does not occur.
+
+If we are using Named export then we must include imported thing in curly braces else we will get an error.
+
+export const LOGO_URL =
+"https://www.logodesign.net/logo/smoking-burger-with-lettuce-3624ld.png?size=2";
+
+import { LOGO_URL } from "../utility/constants";
+
+![alt text](image.png)
+
+# Hooks
+
+In React Hooks are a Javascript funtions which gives a react more power in terms of fast DOM manipulation, State Managements etc.
+
+# useState Hook :-
+
+Suppose we are rendering a component which has list of resturants, when our app start whole list is rendered on UI, But after we click on filter button or we can say an onClick event is occurred and filtered the list but UI is not changed.
+
+Then state management comes in picture. useState Hook help us to maintain sync between data and UI.
+
+useState Hook is most useful when some event occur due to data changed to provide sync between UI and data layer useState help.
+
+useState re-renders the component when data is changed.
+That is the reason it make React faster only component is re-renders not whole app.
+
+# Reconcilation OR React fiber OR Virtual DOM.
+
+Whenever any re-renders happens their not magic going on, React has virtual Dom and Diff algorithm which keeps track or DOM Nodes.
+
+For example Initally in our app one component renders 7 resturant list details but after click filter butter resturants became only 4.
+
+So basically our acutal dom has 7 nodes but now its 4 and this 4 nodes is a virtual DOM. React Diff compares the actual Dom and Virtual Dom calculate the difference then re-renders the components.
+
+Virtual DOM :-
+
+We know that React.createElemet give us a object. whenever the component changes new object will create, component and React.createElement is same at the end it is JS object.
+
+Our orignal object and new object is actual dom and virtual dom, React Diff algo compares this two obj and re-renders the component.
+
+Because comparing an HTML document is difficult than objects.
