@@ -277,3 +277,43 @@ We know that React.createElemet give us a object. whenever the component changes
 Our orignal object and new object is actual dom and virtual dom, React Diff algo compares this two obj and re-renders the component.
 
 Because comparing an HTML document is difficult than objects.
+
+# --------------------------------------------------------------------------------------------------------------------------------------
+
+# Episode : 6
+
+Shimmer UI :-
+
+This is very good concept in terms of providing a good user experince to customers,
+
+Tradition concept is we can provide a spinner util the data is fetched from API, But this gives a bad UX because suddenly users will see a huge data on page.
+
+Shimmer provides a good UX by using a fake data, suppose we want to display a list of cards we will show the fake cards to the user until the orignal comes from the API. Shimmer sets a mentallity of user that something is coming on page related to his work.
+
+for demo eg:- Shimmer.js I created.
+
+Rendring On API call :-
+
+Their are two types of Rendering are used in fronted when API is called.
+
+1. UI -> API -> Render
+2. UI -> Render -> API -> Render
+
+Second option is good in terms of providing a good UX because if use first user have to wait some time on page to see the actual data, until that either page is loding or spinner use will get.
+
+In second we use the shimmer concept until our API fetched the data until then shimmer will show the fake or dummy page to user that some related content is coming.
+
+# useEffect Hook :-
+
+UseEffect hook in React is very important when we use second approach for render the UI or component.
+
+This Hook is called once the component is rended this Hook is called. This Hook is very useful to fetch api data in rendering cycle.
+
+useEffect(() => {
+
+}, [])
+
+This hook takes two parametes
+
+1. callback function
+2. Dependecy array
