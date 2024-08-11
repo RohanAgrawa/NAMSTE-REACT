@@ -317,3 +317,132 @@ This hook takes two parametes
 
 1. callback function
 2. Dependecy array
+
+#------------------------------------------------------------------------------------------------------------------------------------
+
+# Episode 7
+
+Routing:-
+
+#-------------------------------------------------------------------------------------------------------------------------------------
+
+# Episode 8
+
+Class Component :-
+
+Earlier in starting era of React their is no one uses the functional component, functional component is latest feature or way of writing the components in react.
+
+But in industry still some legacy projects are running on the class based components its very important to understand this concept or another way of writing the component.
+
+```
+import React from "react";
+
+class UserClass extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0,
+      count1: 1,
+      count2: 2,
+    };
+  }
+  render() {
+    let { count, count1, count2 } = this.state;
+    return (
+      <div className="user-card">
+        <h1>{count}</h1>
+        <button
+          onClick={() => {
+            this.setState({ count: count + 1 });
+          }}
+        >
+          Increase count
+        </button>
+        <h4>Name : {this.props.name}</h4>
+        <h4>Location : {this.props.location}</h4>
+        <h4>Mode : {this.props.mode}</h4>
+      </div>
+    );
+  }
+}
+
+export default UserClass;
+```
+
+- Here we wirte our whole component inside the JS class which extends the React.Component class.
+- React.Component class enables and gives the power to us use the react features to write component.
+- React.component is provided the render method which we overrides to write our JSX code.
+- To pass the props in class component we use the constructor to play with the properties inside costructor we are passing props in super constructor or basically in the react.component class.
+
+why we are passing props to super google it🤣🤣🤣🤣🤣🤣🤣 for better learnings.
+
+In Functional component to manage the state we uses the useState hook, But in class component we are using the this.state variable to play or manage the state in component.
+
+this.state = {
+count: 0,
+count1: 1,
+count2: 2,
+};
+
+- this.state is a big object which contains all the state varibles to manage the state.
+- this.state vairable is always is used inside the constructor why will discuss later or below in some points.
+- to set the state variable we don't directly update the values or keys of the the object.
+- to update the state variables we have setState methode which we will use and pass JS object with state variable and update value like this
+
+* when we are updating count it only update the count state variable won't touch any other variable in this.setstate.
+
+````
+<button
+  onClick={() => {
+    this.setState({ count: count + 1 });
+  }}
+>
+```
+* this.state.count += 1 is a wrong way of updating the value, react will not able to identify dom changes.
+
+Why we are using this.state always in constructor?
+
+Ans :- When we are calling a functional component in web page mean react are mounting it in web page, similarly when ever we are using a class based component react is creating a object for us to use in the web page.
+when object is created a constructor is called so, basically we can do all initialization here because it's best place.
+
+
+````
+
+# Lifecycle of class based component :-
+
+In class based component first constructor is called then render method then componentDidMount method.
+
+If their is a parent child relation in class based component then the flow will change for parent class based component.
+
+![alt text](image-1.png)
+
+Code reference is available in About.js and UserClass.js file.
+
+ComponentDidMount is very useful to make API call. If we recall functional component their we used useEffect hook because it called after the component is rendered afer making an api call it fills data in component and re-render it.
+
+UI -> Render -> API -> Render
+
+So componentDidMount method is helping us making api calls like this.
+
+Suppose if we have multiple child class based compnent then Lifecycle is now different.
+
+1. constructor will be called of parent class.
+2. Render Method will be called of parent class.
+3. constructor will be called of first child.
+4. Render will be called of first child.
+5. constructor will be called of second child.
+6. Render will be called of second child.
+7. If multiple child are their then constructor and render will be calleds of child and so on....
+8. ComponentDidMount will be called of first child.
+9. ComponentDidMount will be called of second child.'
+10. ComponentDidMount will be called of parent child.
+
+Why this parent did ComponentDidMount of first child is called after the second child constructor and render method.
+
+Ans :- React optimizes the object creation process and render process, it batches all the object in render phase.
+
+For More info visit here https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+
+Update cycle begin once setState method is called.
+
+Never compare lifecycle of class component with functional because its an older way of writing the component, but functional component made the developer life easy and we don't have bother about the lifecycle in functional component Mounting and Unmounting phase.
