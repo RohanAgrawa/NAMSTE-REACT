@@ -446,3 +446,69 @@ For More info visit here https://projects.wojtekmaj.pl/react-lifecycle-methods-d
 Update cycle begin once setState method is called.
 
 Never compare lifecycle of class component with functional because its an older way of writing the component, but functional component made the developer life easy and we don't have bother about the lifecycle in functional component Mounting and Unmounting phase.
+
+# --------------------------------------------------------------------------------------------------------------------------------------
+
+# Episode 9
+
+# Single Responsiblity Principal :-
+
+Code is Just Piece of line any one can write. But to become a good developer we must follow certain rules which helps us to create an impcat among the end users.
+
+One of the finest and greates rule is SRP.
+
+SRP help us to make our code more readable, maintainble, testable, resuable.
+
+1. Readable :- If make our component in react light and modular then we will easily read and debug the code.
+2. Maintainable :- If we make our component light small we easily maintain and add the new feature accordingly.
+3. Testable :- If our component follow SRP we can esily test it find the bug.
+4. Reusable :- If our component follow SRP we can easily reuse it anywhere.
+
+SRP means :- For ex our component is doing rendering and fetching the data and some how we can break this two functionally and write the logic single single or basically some how we can separte the functionallity from each other to make our code more readable, maintainble, testable, resuable.
+To follow SRP in React component their are multiple ways but one of the the good ways is to use custom hook.
+
+Here to make our component to follow SRP custom hooks comes in picture.
+
+# Custom Hooks :-
+
+Hooks are Just normal JS function which react gives us to use without worrying about the inner implemantation. In react we can make our own hooks which we will use it as per our need.
+
+To write custom Hook always start a Hook name with use which help react and devloper to understand that this is hook or utility which is doing something behing the secne for us.
+
+# Optimization or Lazy Loading :-
+
+We explored parcel previously, its job is to bunddle the application or provide the production ready file.
+Suppose if we have big application with thousands of components like make my trip.
+we can't bunddle whole application in one single file index.js but we can do something like chunking or or divide the app big component into smaller chunks or lazy load that components.
+
+Lazy Loading helps us to load the file whenever make call to that component feature.
+
+For ex :- Swiggy has two buisness one is food delivery & instamart.
+
+if we load the instamart with food delivery feature in browser our app becomes heavy and index.js size is much greater that leads swiggy perfomance issue.
+
+insted we could something like lazy loding or dynaminc loading. This concept will help us to create a seprate bunddle file for each big feature and load this bunddle file in the browsers as the use made the call for requested feature.
+
+This concept looks simple it has huge impact on our main index.js file to make light weight and load this file in browser by react very fast at the starting of application.
+
+For the use Lazy loading we are doing code sepration.
+
+```
+const Grocery = lazy(() => import("./components/Grocery"));
+
+{
+        path: "/grocery",
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Grocery />
+          </Suspense>
+        ),
+}
+```
+
+lazy function is help us to dynamically load the component as required without bunddle it with whole application.
+here lazy takes a callback function and use an import function to import the required component.
+
+<Suspense> component is provided by react to help developers to make good UX for clients or world by not showing useless thing, This gives us power that we can wait until the lazy loaded bunddle file is not loaded we can show user that component is loading or shimer UI comonent in fallback until or requested bundle is not loaded in browser.
+
+# ------------------------------------------------------------------------------------------------------------------------------------
