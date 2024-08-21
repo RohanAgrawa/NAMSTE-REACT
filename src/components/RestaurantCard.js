@@ -6,9 +6,13 @@ const Restaurant = (props) => {
     resData?.info; // destructring
 
   return (
-    <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
-      <img alt="res-logo" src={CDN_LINK + cloudinaryImageId} />
-      <h3>{name}</h3>
+    <div className="bg-gray-100 w-[200px] min-h-[350px] shadow-lg p-5 m-4 rounded-md flex flex-col justify-between hover:bg-gray-400">
+      <img
+        className="rounded-md h-[150px] object-cover"
+        alt="res-logo"
+        src={CDN_LINK + cloudinaryImageId}
+      />
+      <h3 className="font-bold py-3">{name}</h3>
       <h4>{cuisines.join(", ")}</h4>
       <h4>{avgRating} stars</h4>
       <h4>{costForTwo} </h4>

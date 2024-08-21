@@ -512,3 +512,36 @@ here lazy takes a callback function and use an import function to import the req
 <Suspense> component is provided by react to help developers to make good UX for clients or world by not showing useless thing, This gives us power that we can wait until the lazy loaded bunddle file is not loaded we can show user that component is loading or shimer UI comonent in fallback until or requested bundle is not loaded in browser.
 
 # ------------------------------------------------------------------------------------------------------------------------------------
+
+# Episode 10
+
+# Jo Dikhta h voh bikta hai
+
+Eariler in frontend we are using many ways to use css either by writing our self or by using some built in libraries.
+
+we can wirte css using mulitiple way like
+
+1. Traditional CSS
+2. SCSS
+3. Material UI
+4. Boot strap
+   and many more ways
+
+But Now days tailwind is most popular and super power ful css library.
+
+pros :-
+
+1. Tailwind provides a css classes, so that we can directly use in our HTML, JSX to make use UI good.
+2. Tailwind provides the concept of reusablity, suppose if we are using one tailwind class multiple time in our project it when we build the project bundler only contains only one time the build of that class. That makes tailwind most popular because of light weight.
+
+cons :-
+
+2. Tailwind intial learning curve is little bit time consuming, but once we are used to it makes our life much much easier.
+3. Tailwind class makes our code ugly because lot of thing in one place.
+
+Go to offical documentation for the learning and to explore more about tailwind.
+
+Install vs code extension for tailwind
+
+1. PostCSS Language Support
+2. Tailwind CSS IntelliSense
