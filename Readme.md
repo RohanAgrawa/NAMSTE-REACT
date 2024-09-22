@@ -545,3 +545,11 @@ Install vs code extension for tailwind
 
 1. PostCSS Language Support
 2. Tailwind CSS IntelliSense
+
+# --------------------------------------------------------------------------------------------------------------------------------------
+
+# Episode 11
+
+Higher order level component :-
+
+Higher Order level component is function which takes value as component and return a component. Higer order level component is just a JS function, which add a extra feature to existing component with disturbing its acutal implementation. Higher order level function/component so we can say a pure functions also.
