@@ -1,4 +1,4 @@
-import Restaurant from "./RestaurantCard";
+import Restaurant, { WithPromoted } from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./shimmer";
 import { Link } from "react-router-dom";
@@ -8,6 +8,7 @@ const Body = () => {
   const [restaurantList, setRestaurantList] = useState([]);
   const [filteredRestaurantList, setFilteredRestaurantList] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const PromotedRestaurant = WithPromoted(Restaurant);
 
   useEffect(() => {
     fetchData();
@@ -15,18 +16,16 @@ const Body = () => {
 
   const fetchData = async () => {
     const response = await fetch(
-      "https://www.swiggy.com/api/seo/getListing?lat=12.9352403&lng=77.624532"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.55793863578917&lng=73.95337477326393&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const data = await response.json();
 
     setRestaurantList(
-      data?.data?.success?.cards[1]?.card.card?.gridElements?.infoWithStyle
-        ?.restaurants
+      data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
 
     setFilteredRestaurantList(
-      data?.data?.success?.cards[1]?.card.card?.gridElements?.infoWithStyle
-        ?.restaurants
+      data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
@@ -81,7 +80,14 @@ const Body = () => {
             key={restaurant.info.id}
             to={"/restaurants/" + restaurant.info.id}
           >
-            <Restaurant key={restaurant.info.id} resData={restaurant} />
+            {Number(restaurant.info.id) % 2 === 1 ? (
+              <Restaurant key={restaurant.info.id} resData={restaurant} />
+            ) : (
+              <PromotedRestaurant
+                key={restaurant.info.id}
+                resData={restaurant}
+              ></PromotedRestaurant>
+            )}
           </Link>
         ))}
       </div>
