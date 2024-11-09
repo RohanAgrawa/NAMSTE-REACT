@@ -553,3 +553,7 @@ Install vs code extension for tailwind
 Higher order level component :-
 
 Higher Order level component is function which takes value as component and return a component. Higer order level component is just a JS function, which add a extra feature to existing component with disturbing its acutal implementation. Higher order level function/component so we can say a pure functions also.
+
+Data Mangement using Accordian :-
+
+Accordian is just css feture to collapse and expand to show and hide the data but the main problem is the manage the state of data so its good concept of using accordian to manage the state of data when it open data must visible and when accordian is collapse it data must be hide.
