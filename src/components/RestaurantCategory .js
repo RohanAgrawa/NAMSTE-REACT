@@ -2,7 +2,7 @@ import ItemList from "./ItemList";
 
 const RestaurantCategory = ({ data, showItem, setShowItem }) => {
   const handleClick = () => {
-    setShowItem();
+    showItem ? setShowItem(showItem) : setShowItem(showItem);
   };
   return (
     <div>
