@@ -557,3 +557,11 @@ Higher Order level component is function which takes value as component and retu
 Data Mangement using Accordian :-
 
 Accordian is just css feture to collapse and expand to show and hide the data but the main problem is the manage the state of data so its good concept of using accordian to manage the state of data when it open data must visible and when accordian is collapse it data must be hide.
+
+Lifitng state Up & (controlled And Uncontrolled component) :-
+
+- Uncontrolled componets are functions on parent component has no control on his children component's state variables. It's just like childeren component has contains its own state varible and manage by their own.
+
+- Controlled component are the functions are the components wheir childeren components are depends on the parents state varibles, Basically parent component control the state of its childerent comonent.
+
+- Lifting state up basically parent component will send the update state vaiable to childeren component according to that state varible childeren will act.

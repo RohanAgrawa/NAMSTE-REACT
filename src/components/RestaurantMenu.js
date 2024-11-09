@@ -8,6 +8,7 @@ import { useState } from "react";
 const RestaurantMenu = () => {
   const { resId } = useParams();
   const resInfo = useRestaurantMenu(resId);
+  const [showItem, setShowItem] = useState(null);
 
   if (resInfo === null) return <Shimmer />;
 
@@ -34,6 +35,8 @@ const RestaurantMenu = () => {
         <RestaurantCategory
           data={category?.card?.card}
           key={category?.card?.card.title}
+          showItem={index === showItem}
+          setShowItem={() => setShowItem(index)}
         />
       ))}
     </div>
