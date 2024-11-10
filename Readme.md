@@ -322,7 +322,7 @@ This hook takes two parametes
 
 # Episode 7
 
-Routing:-
+Routing:- https://reactrouter.com/en/main/hooks/use-params
 
 #-------------------------------------------------------------------------------------------------------------------------------------
 
