@@ -565,3 +565,18 @@ Lifitng state Up & (controlled And Uncontrolled component) :-
 - Controlled component are the functions are the components wheir childeren components are depends on the parents state varibles, Basically parent component control the state of its childerent comonent.
 
 - Lifting state up basically parent component will send the update state vaiable to childeren component according to that state varible childeren will act.
+
+Prop Drilling :-
+
+Prop Drilling is the term is used whenever we pass the props from root component to its child than grand child component and so on. Basically we are passing props from parent to leaf component.
+
+Context Hook :-
+
+Context Hook will help us to avoid the prop drilling. The problem is that if root component wants to send some prop to its leaf component all the itermediate component are not using that prop but they are simply passing till leaf. To avoid such prop drilling we can create contex hook which will store the data and that data can be accessed globally.
+
+Their is cretain example where context hook might be useful.
+
+1. Suppose whenever user logged in to our app. and we want the data of user login information to be accessed somewhere in application for that we want to be store and access globally than context hook will helps to solve our problem and and store the data and that will be accessed globally.
+
+2. If you have seen the flipkar or amazon app their is cart icon is their and that cart data is updated whenever we add new item to it.
+   Behind the scene it is using context hook / redux if they are using react library, because that is access globally that's the reason is someone try to add the data in cart that context values are updated and we see the update value in the cart of our app.

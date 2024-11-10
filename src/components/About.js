@@ -1,6 +1,7 @@
 import { Component } from "react";
 import User from "./User";
 import UserClass from "./UserClass";
+import UserContext from "../utility/UserContext";
 
 class About extends Component {
   constructor(props) {
@@ -16,6 +17,13 @@ class About extends Component {
     return (
       <div>
         <h4>About us</h4>
+        <div>
+          <UserContext.Consumer>
+            {({ loggedInUser }) => (
+              <h1 className="text-xl font-bold">{loggedInUser}</h1>
+            )}
+          </UserContext.Consumer>
+        </div>
         <h3>
           This is About page is the create for Learning from Namste react
           series.
