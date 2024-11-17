@@ -1,15 +1,16 @@
 import Restaurant, { WithPromoted } from "./RestaurantCard";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Shimmer from "./shimmer";
 import { Link } from "react-router-dom";
 import useNetworkStatus from "../utility/useNetworkStatus";
+import UserContext from "../utility/UserContext";
 
 const Body = () => {
   const [restaurantList, setRestaurantList] = useState([]);
   const [filteredRestaurantList, setFilteredRestaurantList] = useState([]);
   const [searchText, setSearchText] = useState("");
   const PromotedRestaurant = WithPromoted(Restaurant);
-
+  const { loggedInUser, setUserName } = useContext(UserContext);
   useEffect(() => {
     fetchData();
   }, []);

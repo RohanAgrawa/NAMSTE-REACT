@@ -580,3 +580,23 @@ Their is cretain example where context hook might be useful.
 
 2. If you have seen the flipkar or amazon app their is cart icon is their and that cart data is updated whenever we add new item to it.
    Behind the scene it is using context hook / redux if they are using react library, because that is access globally that's the reason is someone try to add the data in cart that context values are updated and we see the update value in the cart of our app.
+
+# -------------------------------------------------------------------------------------------------------------------------------------
+
+# Episode 12
+
+Redux :-
+
+Redux is a library which will use with react to manage the state and data at global place. redux does not come with react its seprate library to use in react we have to install it.
+
+Redux contains a big store which availble at global place and that store has different slices so that we modify only that particular lice of our requirement for eg: cart slice, user info slice and many more as per requirement.
+
+To add data in store first.
+
+dispatch ==> call action method => update slice of the store.
+
+To retrive data from store
+
+Select or suscribe to store ==> get the data.
+
+For more learning go to redux documentation.

@@ -3,11 +3,12 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import useNetworkStatus from "../utility/useNetworkStatus";
 import UserContext from "../utility/UserContext";
+import { useSelector } from "react-redux";
 const Header = () => {
   const [authButton, setAuthButton] = useState("Login");
   const isOnine = useNetworkStatus();
   const { loggedInUser } = useContext(UserContext);
-
+  const cartItems = useSelector((store) => store.cart.cartItem);
   return (
     <div className="flex justify-between bg-pink-100 shadow-lg">
       <div className="bg-neutral-100 w-[170px]">
@@ -30,7 +31,9 @@ const Header = () => {
           <li className="p-2 m-2">
             <Link to="/Grocery">Grocery</Link>
           </li>
-          <li className="p-2 m-2">Cart</li>
+          <li className="p-2 m-2">
+            <Link to="/cart">Cart - {cartItems.length}</Link>
+          </li>
           <button
             className="p-2 m-2"
             onClick={() => {

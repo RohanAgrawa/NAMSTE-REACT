@@ -1,5 +1,11 @@
+import { useDispatch } from "react-redux";
 import { NON_VEG_URL, VEG_URL, CDN_LINK } from "../utility/constants";
+import { addItem } from "../utility/cartSlice";
 const ItemList = ({ data }) => {
+  const dispatch = useDispatch();
+  const addInCart = (item) => {
+    dispatch(addItem(item));
+  };
   return (
     <div>
       {data.map((item) => (
@@ -27,7 +33,12 @@ const ItemList = ({ data }) => {
           </div>
           <div className="w-3/12 p-4 relative">
             <div className="absolute inset-x-1.5 bottom-1">
-              <button className="rounded-lg  bg-gray-100 text-green-900 font-bold mx-16 px-8 py-2 shadow-lg">
+              <button
+                className="rounded-lg  bg-gray-100 text-green-900 font-bold mx-16 px-8 py-2 shadow-lg"
+                onClick={() => {
+                  addInCart(item);
+                }}
+              >
                 Add
               </button>
             </div>
